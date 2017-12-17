@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Estudiantes
+{% endblock %}
+
+{% block body %}
+<h1>Listado de Estudiantes</h1>
+
+<table class="table-striped  table-responsive">
+    <th>Nombre</th>
+    <th>Edad</th>
+    <th>Fecha Nacimiento</th>
+        {% for estudiante in estudiantes %}
+            <tr>
+            <td>  {{ estudiante.nombre}}</td>
+            <td>  {{ estudiante.edad}}</td>
+                <td>  {{ estudiante.fechaNacimiento |date('d M Y')}}</td>
+                <td>
+
+                    <a href="http://voy/app_dev.php/estudiantes/{{ estudiante.id}}/edit"
+
+                   class="btn btn-primary">Modificar</a></td>
+
+            </tr>
+        {% endfor %}
+
+</table>
+
+{% endblock %}
+
